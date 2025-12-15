@@ -587,45 +587,45 @@ export default class Controller
         {
             if(this.logic.buttonsLocked === false && (this.logic.mode === 'aboutMe' || this.logic.mode === 'skills' || this.logic.mode === 'experience'))
             {
-                window.open('https://twitter.com/Jessezhouu', '_blank');
+                window.open('https://jagadishreddy.in', '_blank');
             }
-            
+
         }
 
         this.socialControls.linkedIn = async () =>
         {
             if(this.logic.buttonsLocked === false && (this.logic.mode === 'aboutMe' || this.logic.mode === 'skills' || this.logic.mode === 'experience'))
             {
-                window.open('https://www.linkedin.com/in/jessezhou1998', '_blank');
+                window.open('https://www.linkedin.com/in/jagadish-reddy', '_blank');
             }
-            
+
         }
 
         this.socialControls.gitHub = async () =>
         {
             if(this.logic.buttonsLocked === false && (this.logic.mode === 'aboutMe' || this.logic.mode === 'skills' || this.logic.mode === 'experience'))
             {
-                window.open('https://github.com/enderh3art', '_blank');
+                window.open('https://github.com/jagadish-reddy', '_blank');
             }
-            
+
         }
 
         this.socialControls.medium = async () =>
         {
             if(this.logic.buttonsLocked === false && (this.logic.mode === 'aboutMe' || this.logic.mode === 'skills' || this.logic.mode === 'experience'))
             {
-                window.open('https://medium.com/@jesse-zhou', '_blank');
+                window.open('https://jagadishreddy.in', '_blank');
             }
-            
+
         }
 
         this.socialControls.mail = async () =>
         {
             if(this.logic.buttonsLocked === false && (this.logic.mode === 'aboutMe' || this.logic.mode === 'skills' || this.logic.mode === 'experience'))
             {
-                window.location.href='mailto:jessezhouu@gmail.com'
+                window.location.href='mailto:jagadish.reddy1611@gmail.com'
             }
-            
+
         }
     }
 
