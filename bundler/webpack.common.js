@@ -44,20 +44,7 @@ module.exports = {
                     {
                         loader: 'html-loader',
                         options: {
-                            sources: {
-                                list: [
-                                    {
-                                        tag: 'img',
-                                        attribute: 'src',
-                                        type: 'src'
-                                    },
-                                    {
-                                        tag: 'img',
-                                        attribute: 'srcset',
-                                        type: 'srcset'
-                                    }
-                                ]
-                            }
+                            sources: false
                         }
                     }
                 ]
