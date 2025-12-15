@@ -14,6 +14,9 @@ module.exports = merge(
     {
         stats: 'errors-warnings',
         mode: 'development',
+        infrastructureLogging: {
+            level: 'error'
+        },
         devServer:
         {
             host: 'local-ip',
@@ -22,11 +25,14 @@ module.exports = merge(
             https: false,
             allowedHosts: 'all',
             hot: false,
+            liveReload: true,
             watchFiles: ['src/**', 'static/**'],
             static:
             {
                 watch: true,
-                directory: path.join(__dirname, '../static')
+                directory: path.join(__dirname, '../static'),
+                serveIndex: true,
+                publicPath: '/'
             },
             client:
             {
@@ -41,7 +47,7 @@ module.exports = merge(
                 const localIp = ip.v4.sync()
                 const domain1 = `http${https}://${localIp}:${port}`
                 const domain2 = `http${https}://localhost:${port}`
-                
+
                 console.log(`Project running at:\n  - ${infoColor(domain1)}\n  - ${infoColor(domain2)}`)
             }
         }
