@@ -41,7 +41,25 @@ module.exports = {
                 test: /\.(html)$/,
                 use:
                 [
-                    'html-loader'
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            sources: {
+                                list: [
+                                    {
+                                        tag: 'img',
+                                        attribute: 'src',
+                                        type: 'src'
+                                    },
+                                    {
+                                        tag: 'img',
+                                        attribute: 'srcset',
+                                        type: 'srcset'
+                                    }
+                                ]
+                            }
+                        }
+                    }
                 ]
             },
  
@@ -98,16 +116,11 @@ module.exports = {
             // MP3
             {
                 test: /\.(mp3)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/audios/'
-                        }
-                    }
-                ]
+                type: 'asset/resource',
+                generator:
+                {
+                    filename: 'assets/audios/[hash][ext]'
+                }
             }
         ]
     }
