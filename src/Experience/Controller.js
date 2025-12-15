@@ -510,7 +510,7 @@ export default class Controller
             if(this.resources.video['tvScreenVideoTexture'].paused)
             {this.resources.video['tvScreenVideoTexture'].play()}
             else {
-                window.open('https://www.youtube.com/watch?v=fYcphQibLek', '_blank');
+                window.open('https://www.youtube.com/watch?v=FOvOxeb2TCg&t=673s', '_blank');
                 this.resources.video['tvScreenVideoTexture'].pause()
             }
         }

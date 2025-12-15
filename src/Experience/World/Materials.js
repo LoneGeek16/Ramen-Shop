@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
+import DynamicTextures from '../Utils/DynamicTextures.js'
 import chromaVertexShader from '../../shaders/chromaShaders/vertex.glsl'
 import chromaFragmentShader from '../../shaders/chromaShaders/fragment.glsl'
 import TransitionVertexShader from '../../shaders/transitionShaders/vertex.glsl'
@@ -21,12 +22,15 @@ export default class Materials
         this.preLoader = this.experience.preLoader
         this.config = this.experience.config
 
+        this.dynamicTextures = new DynamicTextures()
+
         this.mapColors()
 
         // Wait for textures
         this.resources.on('ready', () =>
         {
             this.mapTextures()
+            this.createDynamicScreens()
         })
 
         this.preLoader.on('start', () =>
@@ -34,10 +38,25 @@ export default class Materials
             // Setup
             this.config.touch = this.experience.config.touch
             this.mapEasel()
-        }) 
+        })
 
         // Debug
         this.debugObject = {}
+    }
+
+    createDynamicScreens()
+    {
+        this.resources.items.bigScreenAboutMeTexture = this.dynamicTextures.createAboutScreen()
+        this.resources.items.bigScreenSkillsTexture = this.dynamicTextures.createSkillsScreen()
+        this.resources.items.bigScreenExperienceTexture = this.dynamicTextures.createExperienceScreen()
+
+        this.resources.items.bigScreenAboutMeMobileTexture = this.dynamicTextures.createAboutScreen()
+        this.resources.items.bigScreenSkillsMobileTexture = this.dynamicTextures.createSkillsScreen()
+        this.resources.items.bigScreenExperienceMobileTexture = this.dynamicTextures.createExperienceScreen()
+
+        for (let i = 1; i <= 8; i++) {
+            this.resources.items[`project${i}Texture`] = this.dynamicTextures.createProjectScreen(i)
+        }
     }
 
     mapColors()
